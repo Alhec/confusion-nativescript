@@ -8,7 +8,7 @@ import { DishdetailComponent } from './dishdetail/dishdetail.component';
 import { DishService } from './services/dish.service';
 import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 import { baseURL } from './shared/baseurl';
-
+import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular';
 @NgModule({
     bootstrap: [
         AppComponent
@@ -17,7 +17,8 @@ import { baseURL } from './shared/baseurl';
         NativeScriptModule,
         AppRoutingModule,
         NativeScriptHttpClientModule,
-        HttpClientModule
+        HttpClientModule,
+        NativeScriptUISideDrawerModule
     ],
     declarations: [
         AppComponent,
