@@ -9,6 +9,9 @@ import { DishService } from './services/dish.service';
 import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 import { baseURL } from './shared/baseurl';
 import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular';
+import { HomeComponent } from "./home/home.component";
+import { PromotionService } from "./services/promotion.service";
+import { LeaderService } from "./services/leader.service";
 @NgModule({
     bootstrap: [
         AppComponent
@@ -23,12 +26,15 @@ import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angul
     declarations: [
         AppComponent,
         MenuComponent,
-        DishdetailComponent
+        DishdetailComponent,
+        HomeComponent
     ],
     providers: [
         {provide: 'baseURL', useValue: baseURL},
         DishService,
-        ProcessHTTPMsgService
+        ProcessHTTPMsgService,
+        PromotionService,
+        LeaderService,
     ],
     schemas: [
         NO_ERRORS_SCHEMA
