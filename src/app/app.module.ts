@@ -10,8 +10,10 @@ import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 import { baseURL } from './shared/baseurl';
 import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular';
 import { HomeComponent } from "./home/home.component";
+import { ContactComponent } from "./contact/contact.component";
 import { PromotionService } from "./services/promotion.service";
 import { LeaderService } from "./services/leader.service";
+import { AboutComponent } from "./about/about.component";
 @NgModule({
     bootstrap: [
         AppComponent
@@ -27,7 +29,9 @@ import { LeaderService } from "./services/leader.service";
         AppComponent,
         MenuComponent,
         DishdetailComponent,
-        HomeComponent
+        HomeComponent,
+        ContactComponent,
+        AboutComponent
     ],
     providers: [
         {provide: 'baseURL', useValue: baseURL},

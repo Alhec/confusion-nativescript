@@ -1,0 +1,30 @@
+<ActionBar title="About Us" class="action-bar">
+</ActionBar>
+<ScrollView orientation="vertical">
+    <GridLayout class="m-5" rows="auto auto auto">
+        <StackLayout row="0" class="p-10 border">
+            <StackLayout>
+                <Label class="h2" text="Our History"></Label>
+                <Label class="body" [text]="text1" textWrap="true"></Label>
+                <Label class="body" [text]="text2" textWrap="true"></Label>
+            </StackLayout>
+        </StackLayout>
+        <Label row="1" height="40" class="p-10 m-t-10 h3" text="Corporate Leadership"></Label>
+        <ListView row="2" height="500"  [items]="leaders" class="list-group  p-10" *ngIf="leaders">
+            <ng-template let-leader="item">
+                <StackLayout orientation="horizontal" class="list-group-item">
+                    <Image row="0" col="0" rowSpan="1" height="108" width="108"  src="{{baseURL + leader.image}}" class="img-circle p-8"></Image>
+                    <GridLayout class="list-group-item" rows="auto *" columns="*">
+                        <StackLayout orientation="vertical" class="list-group-item">
+                            <Label row="0" col="0" [text]="leader.name" class="list-group-item-heading"></Label>
+                                <Label row="1" col="0" class="list-group-item-text" [text]="leader.designation"></Label>
+                                <Label row="2" col="0" class="list-group-item-text" textwrap="true" [text]="leader.description"></Label>
+                        </StackLayout>
+                    </GridLayout>
+                </StackLayout>
+            </ng-template>
+        </ListView>
+        <ActivityIndicator busy="true"  *ngIf="!(leaders || errMess)" width="50" height="50" class="activity-indicator"></ActivityIndicator>
+        <Label *ngIf="errMess" [text]="'Error: ' + errMess"></Label>
+    </GridLayout>
+</ScrollView>
