@@ -14,6 +14,7 @@ import { ContactComponent } from "./contact/contact.component";
 import { PromotionService } from "./services/promotion.service";
 import { LeaderService } from "./services/leader.service";
 import { AboutComponent } from "./about/about.component";
+import { FavoriteService } from "./services/favorite.service";
 import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
 
 @NgModule({
@@ -44,6 +45,7 @@ import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
         ProcessHTTPMsgService,
         PromotionService,
         LeaderService,
+        FavoriteService,
     ],
     schemas: [
         NO_ERRORS_SCHEMA
