@@ -26,7 +26,7 @@ export class FavoriteService {
 
     getFavorites(): Observable<Dish[]> {
         return this.dishservice.getDishes()
-            .pipe(map(dishes => dishes.filter(dish => this.favorites.some(el => el == dish.id))));
+            .pipe(map(dishes => dishes.filter(dish => this.favorites.some(el => el === dish.id.toString()))));
     }
 
     deleteFavorite(id: string): Observable<Dish[]> {

@@ -18,6 +18,9 @@ import { FavoriteService } from "./services/favorite.service";
 import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
 import { FavoritesComponent } from "./favorites/favorites.component";
+import { NativeScriptFormsModule } from "@nativescript/angular";
+import { ReactiveFormsModule } from '@angular/forms';
+import { ReservationComponent } from './reservation/reservation.component';
 @NgModule({
     bootstrap: [
         AppComponent
@@ -31,7 +34,9 @@ import { FavoritesComponent } from "./favorites/favorites.component";
         TNSFontIconModule.forRoot({
             'fa': './fonts/font-awesome.min.css'
         }),
-        NativeScriptUIListViewModule
+        NativeScriptUIListViewModule,
+        NativeScriptFormsModule,
+        ReactiveFormsModule,
     ],
     declarations: [
         AppComponent,
@@ -40,7 +45,8 @@ import { FavoritesComponent } from "./favorites/favorites.component";
         HomeComponent,
         ContactComponent,
         AboutComponent,
-        FavoritesComponent
+        FavoritesComponent,
+        ReservationComponent,
     ],
     providers: [
         {provide: 'baseURL', useValue: baseURL},

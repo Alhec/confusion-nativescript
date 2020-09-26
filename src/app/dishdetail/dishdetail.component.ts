@@ -37,7 +37,7 @@ export class DishdetailComponent implements OnInit {
                 .pipe(switchMap((params: Params) => this.dishservice.getDish(params['id'])))
                 .subscribe(dish => {
                     this.dish = dish;
-                    this.favorite = this.favoriteservice.isFavorite(this.dish.id);
+                    this.favorite = this.favoriteservice.isFavorite(this.dish.id.toString());
                     this.numcomments = this.dish.comments.length;
 
                     let total = 0;
@@ -49,7 +49,7 @@ export class DishdetailComponent implements OnInit {
             addToFavorites() {
                 if (!this.favorite) {
                 console.log('Adding to Favorites', this.dish.id);
-                this.favorite = this.favoriteservice.addFavorite(this.dish.id);
+                this.favorite = this.favoriteservice.addFavorite(this.dish.id.toString());
                 const toast = new Toasty({text:"Added Dish "+ this.dish.id})
                     .setToastDuration(ToastDuration.SHORT)
                     .setToastPosition(ToastPosition.BOTTOM);
