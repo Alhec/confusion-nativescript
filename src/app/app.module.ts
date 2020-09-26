@@ -16,7 +16,8 @@ import { LeaderService } from "./services/leader.service";
 import { AboutComponent } from "./about/about.component";
 import { FavoriteService } from "./services/favorite.service";
 import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
-
+import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
+import { FavoritesComponent } from "./favorites/favorites.component";
 @NgModule({
     bootstrap: [
         AppComponent
@@ -29,7 +30,8 @@ import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
         NativeScriptUISideDrawerModule,
         TNSFontIconModule.forRoot({
             'fa': './fonts/font-awesome.min.css'
-        })
+        }),
+        NativeScriptUIListViewModule
     ],
     declarations: [
         AppComponent,
@@ -37,7 +39,8 @@ import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
         DishdetailComponent,
         HomeComponent,
         ContactComponent,
-        AboutComponent
+        AboutComponent,
+        FavoritesComponent
     ],
     providers: [
         {provide: 'baseURL', useValue: baseURL},
