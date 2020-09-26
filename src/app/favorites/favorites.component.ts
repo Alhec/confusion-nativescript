@@ -5,6 +5,8 @@ import { ListViewEventData, RadListView } from 'nativescript-ui-listview';
 import { RadListViewComponent } from 'nativescript-ui-listview/angular';
 import { ObservableArray } from '@nativescript/core/data/observable-array';
 import { View } from '@nativescript/core/ui/core/view';
+import { confirm } from "@nativescript/core/ui/dialogs";
+import { ToastDuration, ToastPosition, Toasty } from 'nativescript-toasty';
 
 @Component({
     selector: 'app-favorites',
@@ -30,9 +32,31 @@ export class FavoritesComponent implements OnInit {
     }
 
     deleteFavorite(id: string) {
-        this.favoriteservice.deleteFavorite(id)
-            .subscribe(favorites => this.favorites = new ObservableArray(favorites),
+        console.log('delete', id);
+        let options = {
+            title: "Confirm Delete",
+            message: 'Do you want to delete Dish '+ id,
+            okButtonText: "Yes",
+            cancelButtonText: "No",
+            neutralButtonText: "Cancel"
+        };
+        confirm(options).then((result: boolean) => {
+            if(result) {
+                this.favorites = null;
+                this.favoriteservice.deleteFavorite(id)
+                    .subscribe(favorites => {
+                    const toast = new Toasty({text:"Deleted Dish "+ id})
+                    .setToastDuration(ToastDuration.SHORT)
+                    .setToastPosition(ToastPosition.BOTTOM);;
+                    toast.show();
+                    this.favorites = new ObservableArray(favorites);
+                },
                 errmess => this.errMess = errmess);
+            }
+            else {
+            console.log('Delete cancelled');
+            }
+        });
     }
 
     public onCellSwiping(args: ListViewEventData) {
