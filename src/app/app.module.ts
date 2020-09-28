@@ -22,6 +22,7 @@ import { NativeScriptFormsModule } from "@nativescript/angular";
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReservationComponent } from './reservation/reservation.component';
 import { ReservationModalComponent } from "./reservationmodal/reservationmodal.component";
+import { CommentComponent } from './comment/comment.component';
 
 @NgModule({
     bootstrap: [
@@ -50,6 +51,7 @@ import { ReservationModalComponent } from "./reservationmodal/reservationmodal.c
         FavoritesComponent,
         ReservationComponent,
         ReservationModalComponent,
+        CommentComponent
     ],
     providers: [
         {provide: 'baseURL', useValue: baseURL},
@@ -59,7 +61,8 @@ import { ReservationModalComponent } from "./reservationmodal/reservationmodal.c
         LeaderService,
         FavoriteService,
     ],
-    entryComponents: [ReservationModalComponent],
+    entryComponents: [ReservationModalComponent,
+    CommentComponent],
     schemas: [
         NO_ERRORS_SCHEMA
     ]
