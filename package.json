@@ -36,6 +36,7 @@
     "@nativescript/core": "~7.0.0",
     "@nativescript/theme": "~2.3.0",
     "font-awesome": "^4.7.0",
+    "nativescript-camera": "^4.5.0",
     "nativescript-couchbase": "^1.0.18",
     "nativescript-email": "^1.6.0",
     "nativescript-local-notifications": "^4.2.1",

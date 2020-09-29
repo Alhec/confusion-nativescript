@@ -24,6 +24,7 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { ReservationModalComponent } from "./reservationmodal/reservationmodal.component";
 import { CommentComponent } from './comment/comment.component';
 import { CouchbaseService } from './services/couchbase.service';
+import { UserAuthComponent } from "./userauth/userauth.component";
 
 @NgModule({
     bootstrap: [
@@ -52,7 +53,8 @@ import { CouchbaseService } from './services/couchbase.service';
         FavoritesComponent,
         ReservationComponent,
         ReservationModalComponent,
-        CommentComponent
+        CommentComponent,
+        UserAuthComponent
     ],
     providers: [
         {provide: 'baseURL', useValue: baseURL},
