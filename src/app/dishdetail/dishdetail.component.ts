@@ -17,6 +17,8 @@ import { View } from "@nativescript/core/ui/core/view";
 import { SwipeGestureEventData, SwipeDirection } from "@nativescript/core/ui/gestures";
 import { Color } from '@nativescript/core/color';
 import * as enums from "@nativescript/core/ui/enums";
+import * as SocialShare from "nativescript-social-share";
+import { ImageSource, fromUrl } from "@nativescript/core/image-source";
 @Component({
     selector: 'app-dishdetail',
         moduleId: module.id,
@@ -74,14 +76,16 @@ export class DishdetailComponent implements OnInit {
 		dialogs.action({
 		    message: "Select an option",
 		    cancelButtonText: "Cancel",
-		    actions: ["Add to Favourites", "Add a Comment"]
+		    actions: ["Add to Favourites", "Add a Comment","Social Sharing"]
 		}).then(result => {
 		    console.log("Dialog result: " + result);
 		    if(result == "Add to Favourites"){
 		        this.addToFavorites();
 		    }else if(result == "Add a Comment"){
 		        this.addAComment();
-		    }
+		    }else if (result === 'Social Sharing') {
+                this.socialShare();
+              }
 		});
     }
 
@@ -203,4 +207,15 @@ export class DishdetailComponent implements OnInit {
                     console.log(e.message);
                 });
             }
+
+            socialShare() {
+                let image: ImageSource;
+
+                    fromUrl(this.baseURL + this.dish.image)
+                    .then((img: ImageSource) => {
+                    image = img;
+                        SocialShare.shareImage(image, "How would you like to share this image?")
+                    })
+                    .catch(()=> { console.log('Error loading image'); });
+                }
 }
