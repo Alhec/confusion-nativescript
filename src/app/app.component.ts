@@ -7,7 +7,6 @@ import { filter } from "rxjs/operators";
 import { TNSFontIconService } from 'nativescript-ngx-fonticon';
 import { login, LoginResult } from "@nativescript/core/ui/dialogs";
 import { getString, setString } from "@nativescript/core/application-settings";
-
 @Component({
     selector: "ns-app",
     templateUrl: "./app.component.html"
