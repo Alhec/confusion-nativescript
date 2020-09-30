@@ -25,6 +25,7 @@ import { ReservationModalComponent } from "./reservationmodal/reservationmodal.c
 import { CommentComponent } from './comment/comment.component';
 import { CouchbaseService } from './services/couchbase.service';
 import { UserAuthComponent } from "./userauth/userauth.component";
+import { PlatformService } from './services/platform.service';
 
 @NgModule({
     bootstrap: [
@@ -63,7 +64,8 @@ import { UserAuthComponent } from "./userauth/userauth.component";
         PromotionService,
         LeaderService,
         FavoriteService,
-        CouchbaseService
+        CouchbaseService,
+        PlatformService
     ],
     entryComponents: [ReservationModalComponent,
     CommentComponent],
